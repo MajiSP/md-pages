@@ -23,9 +23,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
             timerElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
 
+            if (distance < 30 * 60 * 1000 && distance > 0) {
+                header.classList.add('urgent');
+            } else {
+                header.classList.remove('urgent');
+            }
+
             if (distance < 0) {
                 clearInterval(interval);
                 timerElement.innerHTML = "EXPIRED";
+                header.classList.remove('urgent');
             }
         };
 
