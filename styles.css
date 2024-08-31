@@ -1,17 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
-
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #1a1a2e;
-    color: #fff;
-    overflow-y: auto;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
 }
 
 .container {
@@ -20,66 +15,40 @@ body {
     padding: 2rem;
 }
 
-::-webkit-scrollbar {
-    width: 12px;
-}
-
-::-webkit-scrollbar-track {
-    background: #1a1a2e;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #4a4e69;
-    border-radius: 6px;
-    border: 3px solid #1a1a2e;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #6f7394;
-}
-
-* {
-    scrollbar-width: thin;
-    scrollbar-color: #4a4e69 #1a1a2e;
-}
-
-body {
-    -ms-overflow-style: none;
-}
-
 h1 {
     text-align: center;
-    font-weight: 300;
-    font-size: 3rem;
+    color: #4a9ff5;
     margin-bottom: 2rem;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-.countdown-item {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
+.faq-item {
+    background-color: #16213e;
+    border-radius: 8px;
     margin-bottom: 1rem;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
+    overflow: hidden;
 }
 
-.countdown-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+.faq-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.countdown-header {
+.faq-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
     cursor: pointer;
+    background-color: #0f3460;
+    color: #fff;
 }
 
-.countdown-header h2 {
+.faq-header h2 {
     margin: 0;
-    font-weight: 400;
+    font-size: 1.2rem;
+    font-weight: 500;
 }
 
 .toggle-btn {
@@ -87,55 +56,48 @@ h1 {
     transition: transform 0.3s ease;
 }
 
-.countdown-content {
-    max-height: 0;
+.faq-content {
+    background-color: #1e2749;
     overflow: hidden;
-    transition: max-height 0.3s ease;
+    transition: all 0.3s ease-out;
+    padding: 0 1rem;
+    opacity: 0;
+    max-height: 0;
 }
 
-.countdown-item.active .countdown-content {
-    max-height: 1000px;
+.faq-item.active .faq-content {
+    padding: 1rem;
+    opacity: 1;
 }
 
-.countdown-item.active .toggle-btn {
+.faq-item.active .toggle-btn {
     transform: rotate(45deg);
 }
 
-.countdown-timer {
+.easter-egg {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
     font-size: 2rem;
-    font-weight: 700;
-    text-align: center;
-    margin: 1rem 0;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
-p {
-    text-align: center;
-    margin-bottom: 1rem;
+.easter-egg:hover {
+    transform: scale(1.2);
 }
 
-img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 1rem;
+@keyframes rainbow {
+    0% { color: #ff0000; }
+    14% { color: #ff7f00; }
+    28% { color: #ffff00; }
+    42% { color: #00ff00; }
+    57% { color: #0000ff; }
+    71% { color: #4b0082; }
+    85% { color: #9400d3; }
+    100% { color: #ff0000; }
 }
 
-@keyframes urgentFlash {
-    0%, 100% {
-        background-color: rgba(255, 0, 0, 0.1);
-        box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-    }
-    50% {
-        background-color: rgba(255, 0, 0, 0.3);
-        box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
-    }
-}
-
-.countdown-header.urgent {
-    animation: urgentFlash 2s infinite;
-    border-radius: 10px;
-}
-
-.countdown-header.urgent h2 {
-    color: #ff6b6b;
+.rainbow {
+    animation: rainbow 5s linear infinite;
 }
